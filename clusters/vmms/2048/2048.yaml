@@ -59,7 +59,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: 2048.nlb.example.local
+    - host: 2048.nlb-test.valtech-route53-example.com
       http:
         paths:
           - path: /
