@@ -15,7 +15,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: app-2048
+      app: app-2048
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -24,7 +24,7 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: app-2048
+        app: app-2048
     spec:
       containers:
         - image: alexwhen/docker-2048
@@ -47,10 +47,8 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-      protocol: TCP
-  type: NodePort
   selector:
-    app.kubernetes.io/name: app-2048
+    app: app-2048
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
