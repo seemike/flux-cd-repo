@@ -63,7 +63,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /*
+          - path: /2048
             backend:
               service:
                 name: serv-2048
