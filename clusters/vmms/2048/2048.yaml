@@ -52,7 +52,7 @@ spec:
   selector:
     app.kubernetes.io/name: app-2048
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: game-2048
@@ -62,8 +62,10 @@ metadata:
 spec:
   rules:
     - http:
+        host: 2048.nalz.vmobsrv.com
         paths:
-          - path: /2048
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: serv-2048
