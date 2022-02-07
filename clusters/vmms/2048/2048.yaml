@@ -61,8 +61,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: 2048.nalz.vmobsrv.com
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
