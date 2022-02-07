@@ -1,0 +1,64 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "vmms",
+    "description" : "vmms APIGW without mTLS",
+    "version" : "1.0"
+  },
+  "servers" : [ {
+    "url" : "https://test.nalz.vmobsrv.com",
+    "x-amazon-apigateway-endpoint-configuration" : {
+      "disableExecuteApiEndpoint" : true
+    }
+  } ],
+  "paths" : {
+    "/{proxy+}" : {
+      "x-amazon-apigateway-any-method" : {
+        "parameters" : [ {
+          "name" : "proxy",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "x-amazon-apigateway-integration" : {
+          "connectionId" : "i48yra",
+          "httpMethod" : "ANY",
+          "uri" : "http://a7c9d8f3a9aa945d9a7e729db6abd231-1f94c1fbde2f47c6.elb.eu-central-1.amazonaws.com/{proxy}",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "requestParameters" : {
+            "integration.request.path.proxy" : "method.request.path.proxy"
+          },
+          "passthroughBehavior" : "when_no_match",
+          "connectionType" : "VPC_LINK",
+          "cacheNamespace" : "9zw574",
+          "cacheKeyParameters" : [ "method.request.path.proxy" ],
+          "type" : "http_proxy"
+        }
+      }
+    },
+    "/" : {
+      "get" : {
+        "x-amazon-apigateway-integration" : {
+          "connectionId" : "i48yra",
+          "httpMethod" : "ANY",
+          "uri" : "http://a7c9d8f3a9aa945d9a7e729db6abd231-1f94c1fbde2f47c6.elb.eu-central-1.amazonaws.com",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "passthroughBehavior" : "when_no_match",
+          "connectionType" : "VPC_LINK",
+          "type" : "http_proxy"
+        }
+      }
+    }
+  },
+  "components" : { }
+}
